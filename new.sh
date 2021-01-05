@@ -1,15 +1,17 @@
 #!/bin/sh
 set -e
-set -u
 VERSION=$1
+[ -z "$VERSION" ] && echo "Usage: ./new.sh <VERSION>" && exit 1
 cd `dirname $0`/..
-echo $PWD
+
+# Create a new branch and submodule.
 cd simulations
 git checkout -b $VERSION
-echo git push -u origin $VERSION
+git push -u origin $VERSION
+
 cd ../tioxaxis.github.io
 git submodule add -b $VERSION https://github.com/tioxaxis/simulations.git $VERSION
 git submodule init
 git add $VERSION
 git commit -m "New version $VERSION"
-echo git push
+git push
