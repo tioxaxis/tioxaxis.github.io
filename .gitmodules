@@ -1,7 +1,7 @@
 [submodule "stable"]
 	path = stable
 	url = https://github.com/tioxaxis/simulations.git
-	branch = master
+	branch = v1.1
 [submodule "v1"]
 	path = v1
 	url = https://github.com/tioxaxis/simulations/
