@@ -14,7 +14,10 @@ if [ -n "$BRANCH" ]; then
   git config --file=.gitmodules submodule."$SUBMODULE".branch "$BRANCH"
   git submodule sync
 fi
+BRANCH=$(git config --file=.gitmodules --get submodule."$SUBMODULE".branch)
+
 git submodule update --remote --merge "$SUBMODULE"
 git add "$SUBMODULE"
+git add .
 git commit -m "Updating submodule $SUBMODULE to HEAD of $BRANCH"
 git push
