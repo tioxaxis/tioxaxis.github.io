@@ -12,7 +12,7 @@ cd `dirname $0`
 
 if [ -n "$BRANCH" ]; then
   git config --file=.gitmodules submodule."$SUBMODULE".branch "$BRANCH"
-  git submodule sync
+  git submodule sync "$SUBMODULE"
 fi
 BRANCH=$(git config --file=.gitmodules --get submodule."$SUBMODULE".branch)
 
