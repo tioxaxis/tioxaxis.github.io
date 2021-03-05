@@ -11,12 +11,13 @@ BRANCH=$2
 cd `dirname $0`
 
 if [ -n "$BRANCH" ]; then
-  git config --file=.gitmodules submodule."$SUBMODULE".branch "$BRANCH"
+  #git config --file=.gitmodules submodule."$SUBMODULE".branch "$BRANCH"
+  git submodule set-branch -b "$BRANCH" "$SUBMODULE"
   git submodule sync "$SUBMODULE"
 fi
 BRANCH=$(git config --file=.gitmodules --get submodule."$SUBMODULE".branch)
 
-git submodule update --remote --merge "$SUBMODULE"
+git submodule update --init --remote "$SUBMODULE"
 git add "$SUBMODULE"
 git add .
 git commit -m "Updating submodule $SUBMODULE to HEAD of $BRANCH"
