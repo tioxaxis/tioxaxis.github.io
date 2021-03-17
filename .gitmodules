@@ -14,3 +14,7 @@
 	path = v1.2
 	url = https://github.com/tioxaxis/simulations.git
 	branch = v1.2
+[submodule "v1.3"]
+	path = v1.3
+	url = https://github.com/tioxaxis/simulations.git
+	branch = v1.3
